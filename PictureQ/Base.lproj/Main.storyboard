@@ -180,7 +180,7 @@
                     <navigationItem key="navigationItem" id="Hlv-IP-2Mg"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <segue destination="cHI-d0-laP" kind="show" identifier="submitSegue" id="sya-LH-4Fj"/>
+                        <segue destination="cHI-d0-laP" kind="show" identifier="submitSegue" id="bod-Do-3TO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyA-M2-7eG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -285,7 +285,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wb6-sA-2Rq">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wb6-sA-2Rq">
                                 <rect key="frame" x="93" y="28" width="398" height="336"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="336" id="vqY-iR-CLL"/>

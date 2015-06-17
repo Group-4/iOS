@@ -8,10 +8,17 @@
 
 import UIKit
 
-class SubmitViewController: UIViewController, SubmitImageDelegate {
+protocol SubmitImageDelegate {
+    
+    func pushImageToSubmit(imageToSubmitViewController: UIImage)
+}
+
+class SubmitViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var submitImageView: UIImageView!
     var cameraOriginal: UIImage?
+    
+    var imageDelegate: SubmitImageDelegate!
     
     override func viewWillAppear(animated: Bool) {
         
@@ -20,6 +27,11 @@ class SubmitViewController: UIViewController, SubmitImageDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if cameraOriginal != nil {
+            
+            submitImageView.image = cameraOriginal!
+            
+        }
         
     }
 
@@ -31,31 +43,8 @@ class SubmitViewController: UIViewController, SubmitImageDelegate {
     func pushImageToSubmit(imageToSubmitViewController: UIImage) {
         
         cameraOriginal = imageToSubmitViewController
-        println(cameraOriginal)
-        println("whats up")
+      
         
     }
-
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if segue.identifier == "submitSegue" {
-        
-//            let cameraVC = storyboard?.instantiateViewControllerWithIdentifier("cameraVC") as! CameraViewController
-//            
-//            cameraVC.imageDelegate = self
-//            
-//            self.navigationController?.pushViewController(cameraVC, animated: true)
-            
-            if let cameraVC: CameraViewController = segue.destinationViewController as? CameraViewController {
-             
-                cameraVC.imageDelegate = self
-                
-            }
-            
-        }
-        
-    }
-  
 
 }

@@ -8,18 +8,12 @@
 
 import UIKit
 
-protocol SubmitImageDelegate {
-    
-    func pushImageToSubmit(imageToSubmitViewController: UIImage)
-}
 
 
-class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SubmitImageDelegate {
 
     var cameraImagePicker = UIImagePickerController()
     var cameraOriginal: UIImage!
-    
-    var imageDelegate: SubmitImageDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +24,6 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         cameraImagePicker.allowsEditing = false
         self.view.addSubview(cameraImagePicker.view)
         
-        
-        
         navigationController?.navigationBar.hidden = true
 
     }
@@ -39,6 +31,12 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func pushImageToSubmit(imageToSubmitViewController: UIImage) {
+        
+        cameraOriginal = imageToSubmitViewController
+        
     }
 
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
@@ -51,17 +49,26 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
             println(cameraOriginal)
             
         }
+
+        performSegueWithIdentifier("submitSegue", sender: nil)
+
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        println(imageDelegate)
-        
-        if imageDelegate != nil {
+        if segue.identifier == "submitSegue" {
             
-            let imageFromToSubmit: UIImage =  self.cameraOriginal
-            imageDelegate!.pushImageToSubmit(imageFromToSubmit)
+            if let submitVC: SubmitViewController = segue.destinationViewController as? SubmitViewController {
+                
+                submitVC.imageDelegate = self
+                
+                println(submitVC.imageDelegate)
+                
+                submitVC.cameraOriginal = cameraOriginal
+
+            }
             
         }
-        
-        performSegueWithIdentifier("submitSegue", sender: nil)
         
     }
 
