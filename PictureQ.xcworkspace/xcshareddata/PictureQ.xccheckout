@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>68C52058-F49C-4F48-B3A1-71EEB083D646</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PictureQ</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5E966395E5D8A7F45B3C49AB1F837A0A81C215E7</key>
+		<string>https://github.com/j-pk/PictureQ.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>PictureQ.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5E966395E5D8A7F45B3C49AB1F837A0A81C215E7</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/j-pk/PictureQ.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5E966395E5D8A7F45B3C49AB1F837A0A81C215E7</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5E966395E5D8A7F45B3C49AB1F837A0A81C215E7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PictureQ</string>
+		</dict>
+	</array>
+</dict>
+</plist>

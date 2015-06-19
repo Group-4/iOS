@@ -12,8 +12,26 @@ class WelcomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+//        if HTTPRequest.session().token != nil {
+//            
+//            println(HTTPRequest.session().token)
+//            
+//            if let loginViewController = self.storyboard?.instantiateViewControllerWithIdentifier("loginViewController") as? UIViewController {
+//                
+//                println(loginViewController)
+//                
+//                self.presentViewController(loginViewController, animated: true, completion: nil)
+//                
+//            }
+//            
+//        }
+//        
+        
     }
 
     override func didReceiveMemoryWarning() {

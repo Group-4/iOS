@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C00F58301B3336BC007AC189 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C00F582F1B3336BC007AC189 /* Podfile */; };
+		C00F58651B336229007AC189 /* Colors in Resources */ = {isa = PBXBuildFile; fileRef = C00F58641B336229007AC189 /* Colors */; };
+		C039708D1B346EF900992BC3 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039708C1B346EF900992BC3 /* FeedTableViewController.swift */; };
+		C039708F1B34816F00992BC3 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039708E1B34816F00992BC3 /* FeedTableViewCell.swift */; };
+		C044C9941B34C10E003EB63C /* GuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C044C9931B34C10E003EB63C /* GuessViewController.swift */; };
+		C09207EC1B344BB8009C69C8 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09207EB1B344BB8009C69C8 /* HTTPRequest.swift */; };
 		C0ACEFE11B31CBC4000FEEC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ACEFE01B31CBC4000FEEC6 /* AppDelegate.swift */; };
-		C0ACEFE31B31CBC4000FEEC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ACEFE21B31CBC4000FEEC6 /* ViewController.swift */; };
 		C0ACEFE61B31CBC4000FEEC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0ACEFE41B31CBC4000FEEC6 /* Main.storyboard */; };
 		C0ACEFE81B31CBC4000FEEC6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0ACEFE71B31CBC4000FEEC6 /* Images.xcassets */; };
 		C0ACEFEB1B31CBC4000FEEC6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0ACEFE91B31CBC4000FEEC6 /* LaunchScreen.xib */; };
@@ -20,6 +25,8 @@
 		C0ACF0101B31D196000FEEC6 /* WelcomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ACF00F1B31D196000FEEC6 /* WelcomeTextField.swift */; };
 		C0ACF0131B31D752000FEEC6 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ACF0121B31D752000FEEC6 /* CameraViewController.swift */; };
 		C0ACF0151B31D76E000FEEC6 /* SubmitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ACF0141B31D76E000FEEC6 /* SubmitViewController.swift */; };
+		C0ACF0171B32559A000FEEC6 /* HTTPConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ACF0161B32559A000FEEC6 /* HTTPConstants.swift */; };
+		D9588B3F7BF693558EBA01E2 /* Pods_PictureQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C15544324F14E71888AFBC4E /* Pods_PictureQ.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,10 +40,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6761FE374EC5C33408204994 /* Pods-PictureQ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PictureQ.release.xcconfig"; path = "Pods/Target Support Files/Pods-PictureQ/Pods-PictureQ.release.xcconfig"; sourceTree = "<group>"; };
+		8EBA62AB4F7B968E80DCDC6C /* Pods-PictureQ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PictureQ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PictureQ/Pods-PictureQ.debug.xcconfig"; sourceTree = "<group>"; };
+		C00F582F1B3336BC007AC189 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		C00F58311B3337A8007AC189 /* PictureQ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PictureQ-Bridging-Header.h"; sourceTree = "<group>"; };
+		C00F58641B336229007AC189 /* Colors */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Colors; sourceTree = "<group>"; };
+		C039708C1B346EF900992BC3 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		C039708E1B34816F00992BC3 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		C044C9931B34C10E003EB63C /* GuessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessViewController.swift; sourceTree = "<group>"; };
+		C09207EB1B344BB8009C69C8 /* HTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		C0ACEFDB1B31CBC4000FEEC6 /* PictureQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PictureQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0ACEFDF1B31CBC4000FEEC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0ACEFE01B31CBC4000FEEC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C0ACEFE21B31CBC4000FEEC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C0ACEFE51B31CBC4000FEEC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0ACEFE71B31CBC4000FEEC6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C0ACEFEA1B31CBC4000FEEC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -50,6 +65,8 @@
 		C0ACF00F1B31D196000FEEC6 /* WelcomeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeTextField.swift; sourceTree = "<group>"; };
 		C0ACF0121B31D752000FEEC6 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		C0ACF0141B31D76E000FEEC6 /* SubmitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitViewController.swift; sourceTree = "<group>"; };
+		C0ACF0161B32559A000FEEC6 /* HTTPConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPConstants.swift; sourceTree = "<group>"; };
+		C15544324F14E71888AFBC4E /* Pods_PictureQ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PictureQ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9588B3F7BF693558EBA01E2 /* Pods_PictureQ.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +88,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		771502447B51F975030FF816 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8EBA62AB4F7B968E80DCDC6C /* Pods-PictureQ.debug.xcconfig */,
+				6761FE374EC5C33408204994 /* Pods-PictureQ.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		91C4C07AF7E0436B477497F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C15544324F14E71888AFBC4E /* Pods_PictureQ.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C044C9921B34C0F0003EB63C /* Guess */ = {
+			isa = PBXGroup;
+			children = (
+				C044C9931B34C10E003EB63C /* GuessViewController.swift */,
+			);
+			name = Guess;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		C0ACEFD21B31CBC4000FEEC6 = {
 			isa = PBXGroup;
 			children = (
+				C00F58641B336229007AC189 /* Colors */,
 				C0ACEFDD1B31CBC4000FEEC6 /* PictureQ */,
 				C0ACEFF31B31CBC4000FEEC6 /* PictureQTests */,
 				C0ACEFDC1B31CBC4000FEEC6 /* Products */,
+				771502447B51F975030FF816 /* Pods */,
+				91C4C07AF7E0436B477497F6 /* Frameworks */,
+				C00F58311B3337A8007AC189 /* PictureQ-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,8 +143,10 @@
 				C0ACF00C1B31CCBE000FEEC6 /* Designables */,
 				C0ACF00A1B31CC5C000FEEC6 /* Welcome */,
 				C0ACF00B1B31CC7A000FEEC6 /* Main Feed */,
+				C044C9921B34C0F0003EB63C /* Guess */,
 				C0ACF0111B31D708000FEEC6 /* Camera */,
 				C0ACEFDE1B31CBC4000FEEC6 /* Supporting Files */,
+				C00F582F1B3336BC007AC189 /* Podfile */,
 			);
 			path = PictureQ;
 			sourceTree = "<group>";
@@ -104,6 +154,8 @@
 		C0ACEFDE1B31CBC4000FEEC6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C09207EB1B344BB8009C69C8 /* HTTPRequest.swift */,
+				C0ACF0161B32559A000FEEC6 /* HTTPConstants.swift */,
 				C0ACEFE01B31CBC4000FEEC6 /* AppDelegate.swift */,
 				C0ACEFE71B31CBC4000FEEC6 /* Images.xcassets */,
 				C0ACEFE91B31CBC4000FEEC6 /* LaunchScreen.xib */,
@@ -132,8 +184,8 @@
 		C0ACF00A1B31CC5C000FEEC6 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
-				C0ACF0061B31CC45000FEEC6 /* LoginViewController.swift */,
 				C0ACF0041B31CC38000FEEC6 /* WelcomeViewController.swift */,
+				C0ACF0061B31CC45000FEEC6 /* LoginViewController.swift */,
 				C0ACF0081B31CC54000FEEC6 /* RegisterViewController.swift */,
 			);
 			name = Welcome;
@@ -142,7 +194,8 @@
 		C0ACF00B1B31CC7A000FEEC6 /* Main Feed */ = {
 			isa = PBXGroup;
 			children = (
-				C0ACEFE21B31CBC4000FEEC6 /* ViewController.swift */,
+				C039708C1B346EF900992BC3 /* FeedTableViewController.swift */,
+				C039708E1B34816F00992BC3 /* FeedTableViewCell.swift */,
 			);
 			name = "Main Feed";
 			sourceTree = "<group>";
@@ -173,9 +226,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C0ACEFFA1B31CBC4000FEEC6 /* Build configuration list for PBXNativeTarget "PictureQ" */;
 			buildPhases = (
+				460ACF7A1C58AF7BE81AC531 /* Check Pods Manifest.lock */,
 				C0ACEFD71B31CBC4000FEEC6 /* Sources */,
 				C0ACEFD81B31CBC4000FEEC6 /* Frameworks */,
 				C0ACEFD91B31CBC4000FEEC6 /* Resources */,
+				7437879A05DCF1E885F5320E /* Embed Pods Frameworks */,
+				5BFDC3C8E2212BACA9857C5B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,8 +302,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C00F58651B336229007AC189 /* Colors in Resources */,
 				C0ACEFE61B31CBC4000FEEC6 /* Main.storyboard in Resources */,
 				C0ACEFEB1B31CBC4000FEEC6 /* LaunchScreen.xib in Resources */,
+				C00F58301B3336BC007AC189 /* Podfile in Resources */,
 				C0ACEFE81B31CBC4000FEEC6 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,19 +319,71 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		460ACF7A1C58AF7BE81AC531 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5BFDC3C8E2212BACA9857C5B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PictureQ/Pods-PictureQ-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7437879A05DCF1E885F5320E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PictureQ/Pods-PictureQ-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C0ACEFD71B31CBC4000FEEC6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C0ACF0071B31CC45000FEEC6 /* LoginViewController.swift in Sources */,
+				C039708F1B34816F00992BC3 /* FeedTableViewCell.swift in Sources */,
+				C09207EC1B344BB8009C69C8 /* HTTPRequest.swift in Sources */,
+				C039708D1B346EF900992BC3 /* FeedTableViewController.swift in Sources */,
+				C0ACF0171B32559A000FEEC6 /* HTTPConstants.swift in Sources */,
 				C0ACF0091B31CC54000FEEC6 /* RegisterViewController.swift in Sources */,
 				C0ACF00E1B31CCF1000FEEC6 /* WelcomeButton.swift in Sources */,
 				C0ACF0101B31D196000FEEC6 /* WelcomeTextField.swift in Sources */,
 				C0ACF0151B31D76E000FEEC6 /* SubmitViewController.swift in Sources */,
 				C0ACF0051B31CC38000FEEC6 /* WelcomeViewController.swift in Sources */,
 				C0ACF0131B31D752000FEEC6 /* CameraViewController.swift in Sources */,
-				C0ACEFE31B31CBC4000FEEC6 /* ViewController.swift in Sources */,
+				C044C9941B34C10E003EB63C /* GuessViewController.swift in Sources */,
 				C0ACEFE11B31CBC4000FEEC6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,21 +509,28 @@
 		};
 		C0ACEFFB1B31CBC4000FEEC6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EBA62AB4F7B968E80DCDC6C /* Pods-PictureQ.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = PictureQ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PictureQ-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		C0ACEFFC1B31CBC4000FEEC6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6761FE374EC5C33408204994 /* Pods-PictureQ.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = PictureQ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PictureQ-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -470,6 +587,7 @@
 				C0ACEFFC1B31CBC4000FEEC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0ACEFFD1B31CBC4000FEEC6 /* Build configuration list for PBXNativeTarget "PictureQTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +596,7 @@
 				C0ACEFFF1B31CBC4000FEEC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
