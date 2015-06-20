@@ -27,8 +27,9 @@ class SubmitViewController: UIViewController, UINavigationControllerDelegate {
     
     override func viewWillAppear(animated: Bool) {
         
+        self.navigationController?.navigationBarHidden = false
+        
     }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,6 +38,9 @@ class SubmitViewController: UIViewController, UINavigationControllerDelegate {
             submitImageView.image = cameraOriginal!
             
         }
+        
+        submitImageView.layer.cornerRadius = CGFloat(10)
+        submitImageView.clipsToBounds = true
         
         var newSize = CGSize(width: 200,height: 200)
         let rect = CGRectMake(0,0, newSize.width, newSize.height)
@@ -48,6 +52,16 @@ class SubmitViewController: UIViewController, UINavigationControllerDelegate {
         self.resizedImageToSubmit = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
+        //Looks for single or multiple taps.
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        view.addGestureRecognizer(tap)
+    
+        //Calls this function when the tap is recognized.
+        func DismissKeyboard(){
+            //Causes the view (or one of its embedded text fields) to resign the first responder status.
+            view.endEditing(true)
+        }
+            
         
     }
 

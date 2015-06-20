@@ -4,6 +4,10 @@ import UIKit
 private let defaults = NSUserDefaults.standardUserDefaults()
 private let _singleton = HTTPRequest()
 
+let THEME_BLUE = UIColor(red:0.14, green:0.32, blue:0.46, alpha:1)
+let BURNT_ORANGE = UIColor(red:0.98, green:0.5, blue:0.27, alpha:1)
+let RICE_FLOWER = UIColor(red:0.95, green:1, blue:0.9, alpha:1)
+
 let API_URL = "http://tiyqpic.herokuapp.com"
 
 class HTTPRequest: NSObject {

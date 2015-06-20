@@ -11,10 +11,15 @@ import UIKit
 class FeedTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imageFromRails: UIImageView!
+    @IBOutlet weak var userNameForCell: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        imageFromRails.layer.cornerRadius = CGFloat(10)
+        imageFromRails.clipsToBounds = true
+    
+    
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

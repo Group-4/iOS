@@ -10,9 +10,23 @@ import UIKit
 
 class FeedTableViewController: UITableViewController {
 
-    var allImages: [AnyObject] = []
-    
+    var dataFromRails: [AnyObject] = []
     var imageToGuessScreen: UIImage?
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        //navigationbar
+        navigationController?.navigationBar.barTintColor = THEME_BLUE
+        navigationController?.navigationBar.tintColor = THEME_BLUE
+        
+        //titlebar image - centered
+        let titleBarImageView = UIImageView(frame: CGRectMake(0, 0, 80, 22))
+        titleBarImageView.contentMode = .ScaleAspectFit
+        let image = UIImage(named: "")
+        titleBarImageView.image = image
+        navigationItem.titleView = titleBarImageView
+        
+    }
     
     
     override func viewDidLoad() {
@@ -20,7 +34,7 @@ class FeedTableViewController: UITableViewController {
         
         HTTPRequest.session().getImages { () -> Void in
             
-            self.allImages = HTTPRequest.session().getDataFromRailsArray
+            self.dataFromRails = HTTPRequest.session().getDataFromRailsArray
             self.tableView.reloadData()
             
         }
@@ -46,14 +60,14 @@ class FeedTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return allImages.count
+        return dataFromRails.count
     }
 
   
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("feedCell", forIndexPath: indexPath) as! FeedTableViewCell
         
-        if let imageURL = allImages[indexPath.row]["image_url"] as? String {
+        if let imageURL = dataFromRails[indexPath.row]["image_url"] as? String {
             
             println(imageURL)
             
@@ -64,13 +78,20 @@ class FeedTableViewController: UITableViewController {
                     let image = UIImage(data: imageData)
                     
                     cell.imageFromRails.image = image
-//                    self.imageToGuessScreen = image
                     
                     println(image)
                     
                 }
             
             }
+            
+        }
+        
+        if let userNameFromRails = dataFromRails[indexPath.row]["owner"] as? String {
+            
+            println(userNameFromRails)
+            
+            cell.userNameForCell.text = userNameFromRails
             
         }
         
@@ -96,9 +117,9 @@ class FeedTableViewController: UITableViewController {
             
                 let row = (sender as! NSIndexPath).row
                 
-                println(allImages)
+                println(dataFromRails)
                 
-                let imageURLString = allImages[row]["image_url"] as! String
+                let imageURLString = dataFromRails[row]["image_url"] as! String
                 
                 let imageURL = NSURL(string: imageURLString)
                 

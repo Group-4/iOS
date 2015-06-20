@@ -25,7 +25,6 @@
 		C0ACF0101B31D196000FEEC6 /* WelcomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ACF00F1B31D196000FEEC6 /* WelcomeTextField.swift */; };
 		C0ACF0131B31D752000FEEC6 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ACF0121B31D752000FEEC6 /* CameraViewController.swift */; };
 		C0ACF0151B31D76E000FEEC6 /* SubmitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ACF0141B31D76E000FEEC6 /* SubmitViewController.swift */; };
-		C0ACF0171B32559A000FEEC6 /* HTTPConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ACF0161B32559A000FEEC6 /* HTTPConstants.swift */; };
 		D9588B3F7BF693558EBA01E2 /* Pods_PictureQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C15544324F14E71888AFBC4E /* Pods_PictureQ.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -65,7 +64,6 @@
 		C0ACF00F1B31D196000FEEC6 /* WelcomeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeTextField.swift; sourceTree = "<group>"; };
 		C0ACF0121B31D752000FEEC6 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		C0ACF0141B31D76E000FEEC6 /* SubmitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitViewController.swift; sourceTree = "<group>"; };
-		C0ACF0161B32559A000FEEC6 /* HTTPConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPConstants.swift; sourceTree = "<group>"; };
 		C15544324F14E71888AFBC4E /* Pods_PictureQ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PictureQ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -155,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				C09207EB1B344BB8009C69C8 /* HTTPRequest.swift */,
-				C0ACF0161B32559A000FEEC6 /* HTTPConstants.swift */,
 				C0ACEFE01B31CBC4000FEEC6 /* AppDelegate.swift */,
 				C0ACEFE71B31CBC4000FEEC6 /* Images.xcassets */,
 				C0ACEFE91B31CBC4000FEEC6 /* LaunchScreen.xib */,
@@ -376,7 +373,6 @@
 				C039708F1B34816F00992BC3 /* FeedTableViewCell.swift in Sources */,
 				C09207EC1B344BB8009C69C8 /* HTTPRequest.swift in Sources */,
 				C039708D1B346EF900992BC3 /* FeedTableViewController.swift in Sources */,
-				C0ACF0171B32559A000FEEC6 /* HTTPConstants.swift in Sources */,
 				C0ACF0091B31CC54000FEEC6 /* RegisterViewController.swift in Sources */,
 				C0ACF00E1B31CCF1000FEEC6 /* WelcomeButton.swift in Sources */,
 				C0ACF0101B31D196000FEEC6 /* WelcomeTextField.swift in Sources */,

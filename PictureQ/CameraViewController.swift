@@ -15,6 +15,12 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     var cameraImagePicker = UIImagePickerController()
     var cameraOriginal: UIImage!
     
+    override func viewWillAppear(animated: Bool) {
+        
+        self.navigationController?.navigationBarHidden = true
+    
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,13 +30,17 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         cameraImagePicker.allowsEditing = false
         self.view.addSubview(cameraImagePicker.view)
         
-        navigationController?.navigationBar.hidden = true
-
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        
+        return true;
     }
     
     func pushImageToSubmit(imageToSubmitViewController: UIImage) {
@@ -52,6 +62,19 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
 
         performSegueWithIdentifier("submitSegue", sender: nil)
 
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        
+        if let feedTVC = self.storyboard?.instantiateViewControllerWithIdentifier("feedTVC") as? UINavigationController {
+            
+            println(feedTVC)
+            
+            self.presentViewController(feedTVC, animated: true, completion: nil)
+//            self.showViewController(feedTVC, sender: nil)
+            
+        }
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

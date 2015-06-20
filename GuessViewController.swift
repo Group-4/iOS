@@ -14,10 +14,21 @@ class GuessViewController: UIViewController {
     
     @IBOutlet weak var imageGuessView: UIImageView!
     
+    override func viewWillAppear(animated: Bool) {
+        
+        navigationController?.navigationBar.barTintColor = THEME_BLUE
+        navigationController?.navigationBar.tintColor = BURNT_ORANGE
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        imageGuessView.layer.cornerRadius = CGFloat(10)
+        imageGuessView.clipsToBounds = true
         imageGuessView.image = imageToGuessScreen!
+      
+
         
         // Do any additional setup after loading the view.
     }
