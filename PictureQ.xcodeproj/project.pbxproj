@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		C00F58301B3336BC007AC189 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C00F582F1B3336BC007AC189 /* Podfile */; };
-		C00F58651B336229007AC189 /* Colors in Resources */ = {isa = PBXBuildFile; fileRef = C00F58641B336229007AC189 /* Colors */; };
 		C039708D1B346EF900992BC3 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039708C1B346EF900992BC3 /* FeedTableViewController.swift */; };
 		C039708F1B34816F00992BC3 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039708E1B34816F00992BC3 /* FeedTableViewCell.swift */; };
 		C044C9941B34C10E003EB63C /* GuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C044C9931B34C10E003EB63C /* GuessViewController.swift */; };
 		C09207EC1B344BB8009C69C8 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09207EB1B344BB8009C69C8 /* HTTPRequest.swift */; };
+		C09E4C071B372700006B95BE /* ScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E4C061B372700006B95BE /* ScoreTableViewCell.swift */; };
+		C09E4C091B372712006B95BE /* ScoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E4C081B372712006B95BE /* ScoreTableViewController.swift */; };
+		C0A00D171B35C4CB0004B396 /* GuessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A00D161B35C4CB0004B396 /* GuessTableViewCell.swift */; };
 		C0ACEFE11B31CBC4000FEEC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ACEFE01B31CBC4000FEEC6 /* AppDelegate.swift */; };
 		C0ACEFE61B31CBC4000FEEC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0ACEFE41B31CBC4000FEEC6 /* Main.storyboard */; };
 		C0ACEFE81B31CBC4000FEEC6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0ACEFE71B31CBC4000FEEC6 /* Images.xcassets */; };
@@ -43,11 +45,13 @@
 		8EBA62AB4F7B968E80DCDC6C /* Pods-PictureQ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PictureQ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PictureQ/Pods-PictureQ.debug.xcconfig"; sourceTree = "<group>"; };
 		C00F582F1B3336BC007AC189 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
 		C00F58311B3337A8007AC189 /* PictureQ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PictureQ-Bridging-Header.h"; sourceTree = "<group>"; };
-		C00F58641B336229007AC189 /* Colors */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Colors; sourceTree = "<group>"; };
 		C039708C1B346EF900992BC3 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
 		C039708E1B34816F00992BC3 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		C044C9931B34C10E003EB63C /* GuessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessViewController.swift; sourceTree = "<group>"; };
 		C09207EB1B344BB8009C69C8 /* HTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
+		C09E4C061B372700006B95BE /* ScoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreTableViewCell.swift; sourceTree = "<group>"; };
+		C09E4C081B372712006B95BE /* ScoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreTableViewController.swift; sourceTree = "<group>"; };
+		C0A00D161B35C4CB0004B396 /* GuessTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessTableViewCell.swift; sourceTree = "<group>"; };
 		C0ACEFDB1B31CBC4000FEEC6 /* PictureQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PictureQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0ACEFDF1B31CBC4000FEEC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0ACEFE01B31CBC4000FEEC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,15 +111,24 @@
 			isa = PBXGroup;
 			children = (
 				C044C9931B34C10E003EB63C /* GuessViewController.swift */,
+				C0A00D161B35C4CB0004B396 /* GuessTableViewCell.swift */,
 			);
 			name = Guess;
 			path = ..;
 			sourceTree = "<group>";
 		};
+		C09E4C051B3726E3006B95BE /* Score Board */ = {
+			isa = PBXGroup;
+			children = (
+				C09E4C081B372712006B95BE /* ScoreTableViewController.swift */,
+				C09E4C061B372700006B95BE /* ScoreTableViewCell.swift */,
+			);
+			name = "Score Board";
+			sourceTree = "<group>";
+		};
 		C0ACEFD21B31CBC4000FEEC6 = {
 			isa = PBXGroup;
 			children = (
-				C00F58641B336229007AC189 /* Colors */,
 				C0ACEFDD1B31CBC4000FEEC6 /* PictureQ */,
 				C0ACEFF31B31CBC4000FEEC6 /* PictureQTests */,
 				C0ACEFDC1B31CBC4000FEEC6 /* Products */,
@@ -141,6 +154,7 @@
 				C0ACF00C1B31CCBE000FEEC6 /* Designables */,
 				C0ACF00A1B31CC5C000FEEC6 /* Welcome */,
 				C0ACF00B1B31CC7A000FEEC6 /* Main Feed */,
+				C09E4C051B3726E3006B95BE /* Score Board */,
 				C044C9921B34C0F0003EB63C /* Guess */,
 				C0ACF0111B31D708000FEEC6 /* Camera */,
 				C0ACEFDE1B31CBC4000FEEC6 /* Supporting Files */,
@@ -299,7 +313,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C00F58651B336229007AC189 /* Colors in Resources */,
 				C0ACEFE61B31CBC4000FEEC6 /* Main.storyboard in Resources */,
 				C0ACEFEB1B31CBC4000FEEC6 /* LaunchScreen.xib in Resources */,
 				C00F58301B3336BC007AC189 /* Podfile in Resources */,
@@ -371,13 +384,16 @@
 			files = (
 				C0ACF0071B31CC45000FEEC6 /* LoginViewController.swift in Sources */,
 				C039708F1B34816F00992BC3 /* FeedTableViewCell.swift in Sources */,
+				C09E4C071B372700006B95BE /* ScoreTableViewCell.swift in Sources */,
 				C09207EC1B344BB8009C69C8 /* HTTPRequest.swift in Sources */,
 				C039708D1B346EF900992BC3 /* FeedTableViewController.swift in Sources */,
 				C0ACF0091B31CC54000FEEC6 /* RegisterViewController.swift in Sources */,
 				C0ACF00E1B31CCF1000FEEC6 /* WelcomeButton.swift in Sources */,
 				C0ACF0101B31D196000FEEC6 /* WelcomeTextField.swift in Sources */,
+				C09E4C091B372712006B95BE /* ScoreTableViewController.swift in Sources */,
 				C0ACF0151B31D76E000FEEC6 /* SubmitViewController.swift in Sources */,
 				C0ACF0051B31CC38000FEEC6 /* WelcomeViewController.swift in Sources */,
+				C0A00D171B35C4CB0004B396 /* GuessTableViewCell.swift in Sources */,
 				C0ACF0131B31D752000FEEC6 /* CameraViewController.swift in Sources */,
 				C044C9941B34C10E003EB63C /* GuessViewController.swift in Sources */,
 				C0ACEFE11B31CBC4000FEEC6 /* AppDelegate.swift in Sources */,

@@ -17,6 +17,7 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         
+        //checks for token, if found goes to login screen
         if HTTPRequest.session().token != nil {
             
             println(HTTPRequest.session().token)
@@ -36,18 +37,8 @@ class WelcomeViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

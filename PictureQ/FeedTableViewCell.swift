@@ -12,6 +12,7 @@ class FeedTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imageFromRails: UIImageView!
     @IBOutlet weak var userNameForCell: UILabel!
+    @IBOutlet weak var solvedForCell: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

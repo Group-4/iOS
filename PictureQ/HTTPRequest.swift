@@ -4,7 +4,7 @@ import UIKit
 private let defaults = NSUserDefaults.standardUserDefaults()
 private let _singleton = HTTPRequest()
 
-let THEME_BLUE = UIColor(red:0.14, green:0.32, blue:0.46, alpha:1)
+let THEME_BLUE = UIColor(red:0.14, green:0.33, blue:0.46, alpha:1)
 let BURNT_ORANGE = UIColor(red:0.98, green:0.5, blue:0.27, alpha:1)
 let RICE_FLOWER = UIColor(red:0.95, green:1, blue:0.9, alpha:1)
 
@@ -40,7 +40,19 @@ class HTTPRequest: NSObject {
     var email: String = ""
     var password: String = ""
     
+    var intValueForAnswer = 0
+    
     var getDataFromRailsArray: [AnyObject] = []
+    var getDataForCurrentUser = 0
+    
+    var getDataForLeaderBoard: [AnyObject] = []
+    var leaderBoardName: String = ""
+    var leaderBoardScore = 0
+    
+    func logoutAndDeleteToken() {
+        
+        defaults.removeObjectForKey("TOKEN")
+    }
     
     func registerwithCompletion(completion: () -> Void) {
         
@@ -59,8 +71,6 @@ class HTTPRequest: NSObject {
             ] as [String:AnyObject]
         
         requestWithInfo(info, andCompletion: { (responseInfo) -> Void in
-            
-            println(responseInfo)
             
             if let accessToken = responseInfo?["access_token"] as? String {
                 
@@ -91,8 +101,6 @@ class HTTPRequest: NSObject {
         
         requestWithInfo(info, andCompletion: { (responseInfo) -> Void in
             
-            println(responseInfo)
-
             if let accessToken = responseInfo?["access_token"] as? String {
                 
                 self.token = accessToken
@@ -105,11 +113,95 @@ class HTTPRequest: NSObject {
         
     }
     
-    func postImage() {
+    func postGuess(guessID: Int, guessToSendToRails: String) {
         
+        var info = [
+            
+            "method" : "POST",
+            "endpoint" : "/posts/\(guessID)/guesses",
+            
+            "parameters" : [
+                
+                "guess" : "\(guessToSendToRails)",
+                
+            ]
+            
+            
+            ] as [String:AnyObject]
         
+        var intValueForAnswer: Int!
         
+        requestWithInfo(info, andCompletion: { (responseInfo) -> Void in
+            
+            if let responseForGuess = responseInfo?["correct"] as? Int {
+                
+                println("response info for guesses " + "\(responseInfo)")
+                
+                self.intValueForAnswer = responseForGuess
+                
+                println(self.intValueForAnswer)
+                
+                if responseForGuess == 0 {
+                    
+                    println("You're wrong! :-(")
+                    
+                    let alertWrong = UIAlertView()
+                    alertWrong.title = "Wrong"
+                    alertWrong.message = "Try Again!"
+                    alertWrong.addButtonWithTitle("OK")
+                    alertWrong.show()
+                    
+                    println(alertWrong)
+                    
+                } else {
+                
+                    println("You're right! :-)")
+                
+                    let alertCorrect = UIAlertView()
+                    alertCorrect.title = "Correct!"
+                    alertCorrect.message = "Here's x points!"
+                    alertCorrect.addButtonWithTitle("OK")
+                    alertCorrect.show()
+                    
+                    println(alertCorrect)
+
+                }
+                
+                
+            }
+            
+            
+        })
+                
     }
+    
+    func getCurrentUser(completion: () -> Void) {
+    
+        var info = [
+    
+            "method" : "GET",
+            "endpoint" : "/users/current_user"
+    
+            ] as [String:AnyObject]
+    
+    
+        requestWithInfo(info, andCompletion: { (responseInfo) -> Void in
+
+            
+            if let dataForCurrentUser = responseInfo?["points"] as? Int {
+            
+                self.getDataForCurrentUser = dataForCurrentUser
+                
+                println("this is current users score " + "\(dataForCurrentUser)")
+            
+                completion()
+            
+             }
+            
+        })
+
+    }
+    
     
     func getImages(completion: () -> Void) {
         
@@ -123,17 +215,39 @@ class HTTPRequest: NSObject {
         
         requestWithInfo(info, andCompletion: { (responseInfo) -> Void in
             
-            println(responseInfo) // array of post dictionaries
-            
             if let dataFromRailsRequest = responseInfo as? [AnyObject] {
                 
                 self.getDataFromRailsArray = dataFromRailsRequest
+                
+//                println(self.getDataFromRailsArray)
                 
                 completion()
                 
             }
             
         })
+        
+    }
+    
+    func getLeaderBoard() {
+        
+        var info = [
+        
+            "method" : "GET",
+            "endpoint" : "/leaderboard"
+            
+        ] as [String:AnyObject]
+        
+        requestWithInfo(info, andCompletion: { (responseInfo) -> Void in
+            
+            if let dataForLeadBoard = responseInfo as? [AnyObject] {
+                
+                self.getDataForLeaderBoard = dataForLeadBoard
+                
+            }
+
+        })
+    
         
     }
     
@@ -180,9 +294,9 @@ class HTTPRequest: NSObject {
             
             NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: { (response, data, error) -> Void in
                 
-                println("test 1 \(response)")
-                println(data)
-                println(error)
+//                println("test 1 \(response)")
+//                println(data)
+//                println(error)
                 
                 //dictionary that comes back
                 if let json: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers, error: nil) {

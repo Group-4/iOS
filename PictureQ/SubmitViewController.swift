@@ -42,7 +42,7 @@ class SubmitViewController: UIViewController, UINavigationControllerDelegate {
         submitImageView.layer.cornerRadius = CGFloat(10)
         submitImageView.clipsToBounds = true
         
-        var newSize = CGSize(width: 200,height: 200)
+        var newSize = CGSize(width: 640,height: 480)
         let rect = CGRectMake(0,0, newSize.width, newSize.height)
         UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
         
@@ -53,14 +53,10 @@ class SubmitViewController: UIViewController, UINavigationControllerDelegate {
         UIGraphicsEndImageContext()
         
         //Looks for single or multiple taps.
-        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
-        view.addGestureRecognizer(tap)
-    
-        //Calls this function when the tap is recognized.
-        func DismissKeyboard(){
-            //Causes the view (or one of its embedded text fields) to resign the first responder status.
-            view.endEditing(true)
-        }
+        let tapper = UITapGestureRecognizer(target: self.view, action:Selector("endEditing:"))
+        tapper.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapper)
+        
             
         
     }
@@ -88,7 +84,7 @@ class SubmitViewController: UIViewController, UINavigationControllerDelegate {
         let urlToSubmit = imageURL
         let submitAnswerString = NSString(format: "image_url=%@&answer=%@", urlToSubmit!, answerToSubmit)
         request.HTTPBody = submitAnswerString.dataUsingEncoding(NSUTF8StringEncoding)
-        request.addValue("cde65978562879b309a6fa3c49e2ee92", forHTTPHeaderField: "Access-Token")
+        request.addValue(HTTPRequest.session().token, forHTTPHeaderField: "Access-Token")
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
             
@@ -120,7 +116,7 @@ class SubmitViewController: UIViewController, UINavigationControllerDelegate {
         //make the image name dynamic
         let timestamp = Int(NSDate().timeIntervalSinceReferenceDate)
         //make it userName dynamic to replace myImage
-        let imageName = "myImage_\(timestamp)"
+        let imageName = "image_\(timestamp)"
         //
         let imageData = UIImagePNGRepresentation(image)
         s3Manager.requestSerializer.bucket = "qpic"
@@ -150,14 +146,6 @@ class SubmitViewController: UIViewController, UINavigationControllerDelegate {
                     
                     self.imageURL = info.URL.absoluteString
                     println(self.imageURL)
-                        
-//                        {
-//                        
-//                        imageURL.absoluteString
-//                        println("THIS IS A URL " + "\(imageURL)")
-//
-//                    
-//                    }
                     
                     println(responseObject)
                     

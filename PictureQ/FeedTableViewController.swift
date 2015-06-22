@@ -12,20 +12,36 @@ class FeedTableViewController: UITableViewController {
 
     var dataFromRails: [AnyObject] = []
     var imageToGuessScreen: UIImage?
+    var nameToGuessScreen: String?
+    var solvedToGuessScreen: String?
     
+    var loginUserData = LoginViewController()
+    
+    @IBOutlet weak var usernameLoggedInLabel: UILabel!
+    @IBOutlet weak var userCurrentScoreLabel: UILabel!
+
     override func viewWillAppear(animated: Bool) {
         
         //navigationbar
         navigationController?.navigationBar.barTintColor = THEME_BLUE
-        navigationController?.navigationBar.tintColor = THEME_BLUE
         
         //titlebar image - centered
-        let titleBarImageView = UIImageView(frame: CGRectMake(0, 0, 80, 22))
+        let titleBarImageView = UIImageView(frame: CGRectMake(0, 0, 60, 40))
         titleBarImageView.contentMode = .ScaleAspectFit
-        let image = UIImage(named: "")
+        let image = UIImage(named: "qpic_logo")
         titleBarImageView.image = image
         navigationItem.titleView = titleBarImageView
         
+        HTTPRequest.session().getCurrentUser { () -> Void in
+            
+            self.userCurrentScoreLabel.text = "Points: \(String(HTTPRequest.session().getDataForCurrentUser))"
+            
+        }
+        
+        HTTPRequest.session().getLeaderBoard()
+
+        
+     
     }
     
     
@@ -39,27 +55,40 @@ class FeedTableViewController: UITableViewController {
             
         }
         
+        usernameLoggedInLabel.text = HTTPRequest.session().username
+        self.refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+
+        
+    }
+    
+    @IBAction func logoutButtonPressed(sender: AnyObject) {
+        
+        HTTPRequest.session().logoutAndDeleteToken()
+        
+        if let loginViewController = self.storyboard?.instantiateViewControllerWithIdentifier("loginViewController") as? UIViewController {
+
+            self.presentViewController(loginViewController, animated: true, completion: nil)
+        
+        }
+        
+    }
+    
+    func refresh(sender:AnyObject)
+    {
+        // Updating data here...
+        
+        self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
     
-    
     }
-
-    // MARK: - Table view data source
-    /*
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
-    }
-    */
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
+    
         return dataFromRails.count
     }
 
@@ -69,7 +98,7 @@ class FeedTableViewController: UITableViewController {
         
         if let imageURL = dataFromRails[indexPath.row]["image_url"] as? String {
             
-            println(imageURL)
+            //println(imageURL)
             
             if let url = NSURL(string: imageURL) {
                     
@@ -79,7 +108,7 @@ class FeedTableViewController: UITableViewController {
                     
                     cell.imageFromRails.image = image
                     
-                    println(image)
+                    //println(image)
                     
                 }
             
@@ -89,9 +118,31 @@ class FeedTableViewController: UITableViewController {
         
         if let userNameFromRails = dataFromRails[indexPath.row]["owner"] as? String {
             
-            println(userNameFromRails)
-            
             cell.userNameForCell.text = userNameFromRails
+            
+        }
+        
+        if let solvedFromRails = dataFromRails[indexPath.row]["solved_by"] as? String {
+            
+            println("solved by " + "\(solvedFromRails)")
+            
+            if solvedFromRails != NSNull() {
+            
+                cell.solvedForCell.text = "Solved by " + "\(solvedFromRails)"
+    
+            } else {
+                
+                cell.solvedForCell.text = "Unsolved!"
+                println("this line of code doesn't print")
+                
+            }
+            
+        }
+        
+        
+        if let answerFromRails = dataFromRails[indexPath.row]["answer"] as? String {
+        
+            println("This is the answer " + "\(answerFromRails)")
             
         }
         
@@ -117,8 +168,6 @@ class FeedTableViewController: UITableViewController {
             
                 let row = (sender as! NSIndexPath).row
                 
-                println(dataFromRails)
-                
                 let imageURLString = dataFromRails[row]["image_url"] as! String
                 
                 let imageURL = NSURL(string: imageURLString)
@@ -131,6 +180,28 @@ class FeedTableViewController: UITableViewController {
                 
                 guessVC.imageToGuessScreen = imageToGuessScreen
                 
+                let userNameFromRails = dataFromRails[row]["owner"] as? String
+                
+                guessVC.nameToGuessScreen = userNameFromRails
+                
+                if let solvedFromRails = dataFromRails[row]["solved"] as? NSNull {
+                    
+                    if solvedFromRails == NSNull() {
+                        
+                        guessVC.solvedToGuessScreen = "Unsolved!"
+                        
+                    } else {
+                        
+                        guessVC.solvedToGuessScreen = "Solved!"
+                        
+                    }
+                    
+                }
+                
+                let imageDataID = dataFromRails[row]["id"] as? Int
+                
+                guessVC.solvedToGuessID = imageDataID
+                
                 println("Next Screen")
                 
             }
@@ -138,53 +209,5 @@ class FeedTableViewController: UITableViewController {
         }
         
     }
-    
-    
-   
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

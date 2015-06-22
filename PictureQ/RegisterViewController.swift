@@ -17,26 +17,27 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tapper = UITapGestureRecognizer(target: self.view, action:Selector("endEditing:"))
+        tapper.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapper)
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func backButtonPressed(sender: AnyObject) {
+        
+        self.dismissViewControllerAnimated(false, completion: { () -> Void in
+            
+            
+        })
+        
+    }
     
     @IBAction func registerButtonPressed(sender: AnyObject) {
-        
-        if self.signupUserNameTextField.isFirstResponder() {
-            self.signupUserNameTextField.resignFirstResponder()
-        }
-        
-        if self.signupEmailTextField.isFirstResponder() {
-            self.resignFirstResponder()
-        }
-        
-        if self.signupPasswordTextField.isFirstResponder() {
-            self.resignFirstResponder()
-        }
+
         
         if count(self.signupUserNameTextField.text) > 0 && count(self.signupEmailTextField.text)  > 0 && count(self.signupPasswordTextField.text) > 0 {
             
@@ -70,6 +71,17 @@ class RegisterViewController: UIViewController {
                         HTTPRequest.session().token = accessToken
                         println("This is a token: " + "\(HTTPRequest.session().token)")
                         
+                        if let feedTVC = self.storyboard?.instantiateViewControllerWithIdentifier("feedTVC") as? UINavigationController {
+                            
+                            self.presentViewController(feedTVC, animated: true, completion: nil)
+                            
+                            
+                        } else {
+                            
+                            println("This will go to alert screen")
+                        }
+
+                        
                     }
                     
                     println("this is json results " + "\(jsonResult)")
@@ -85,15 +97,5 @@ class RegisterViewController: UIViewController {
     
     
 }
-
-/*
-// MARK: - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-// Get the new view controller using segue.destinationViewController.
-// Pass the selected object to the new view controller.
-}
-*/
 
 
