@@ -11,6 +11,7 @@
 		C039708D1B346EF900992BC3 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039708C1B346EF900992BC3 /* FeedTableViewController.swift */; };
 		C039708F1B34816F00992BC3 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039708E1B34816F00992BC3 /* FeedTableViewCell.swift */; };
 		C044C9941B34C10E003EB63C /* GuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C044C9931B34C10E003EB63C /* GuessViewController.swift */; };
+		C0734DB91B3844B60058D85D /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0734DB81B3844B60058D85D /* Keys.swift */; };
 		C09207EC1B344BB8009C69C8 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09207EB1B344BB8009C69C8 /* HTTPRequest.swift */; };
 		C09E4C071B372700006B95BE /* ScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E4C061B372700006B95BE /* ScoreTableViewCell.swift */; };
 		C09E4C091B372712006B95BE /* ScoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E4C081B372712006B95BE /* ScoreTableViewController.swift */; };
@@ -48,6 +49,7 @@
 		C039708C1B346EF900992BC3 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
 		C039708E1B34816F00992BC3 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		C044C9931B34C10E003EB63C /* GuessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessViewController.swift; sourceTree = "<group>"; };
+		C0734DB81B3844B60058D85D /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		C09207EB1B344BB8009C69C8 /* HTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		C09E4C061B372700006B95BE /* ScoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreTableViewCell.swift; sourceTree = "<group>"; };
 		C09E4C081B372712006B95BE /* ScoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreTableViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				C09207EB1B344BB8009C69C8 /* HTTPRequest.swift */,
+				C0734DB81B3844B60058D85D /* Keys.swift */,
 				C0ACEFE01B31CBC4000FEEC6 /* AppDelegate.swift */,
 				C0ACEFE71B31CBC4000FEEC6 /* Images.xcassets */,
 				C0ACEFE91B31CBC4000FEEC6 /* LaunchScreen.xib */,
@@ -383,6 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0ACF0071B31CC45000FEEC6 /* LoginViewController.swift in Sources */,
+				C0734DB91B3844B60058D85D /* Keys.swift in Sources */,
 				C039708F1B34816F00992BC3 /* FeedTableViewCell.swift in Sources */,
 				C09E4C071B372700006B95BE /* ScoreTableViewCell.swift in Sources */,
 				C09207EC1B344BB8009C69C8 /* HTTPRequest.swift in Sources */,

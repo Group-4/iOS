@@ -110,7 +110,7 @@ class SubmitViewController: UIViewController, UINavigationControllerDelegate {
         
     }
     
-    let s3Manager = AFAmazonS3Manager(accessKeyID: "AKIAJV5BTC73BTEQ4RLA", secret: "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")
+    let s3Manager = AFAmazonS3Manager(accessKeyID: accessKey, secret: secret)
     
     func saveImageToS3(image: UIImage) {
         //make the image name dynamic
@@ -119,7 +119,7 @@ class SubmitViewController: UIViewController, UINavigationControllerDelegate {
         let imageName = "image_\(timestamp)"
         //
         let imageData = UIImagePNGRepresentation(image)
-        s3Manager.requestSerializer.bucket = "qpic"
+        s3Manager.requestSerializer.bucket = bucket
         s3Manager.requestSerializer.region = AFAmazonS3USStandardRegion
         
         //save the file locally - need a file path - must be saved in documentdirectory

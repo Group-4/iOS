@@ -16,7 +16,6 @@ class HTTPRequest: NSObject {
     class func session() -> HTTPRequest { return _singleton }
     
     //add id property
-    
     var token: String? {
         
         get {
@@ -113,7 +112,7 @@ class HTTPRequest: NSObject {
         
     }
     
-    func postGuess(guessID: Int, guessToSendToRails: String) {
+    func postGuess(guessID: Int, guessToSendToRails: String, completion: (correct: Bool) -> Void) {
         
         var info = [
             
@@ -133,7 +132,13 @@ class HTTPRequest: NSObject {
         
         requestWithInfo(info, andCompletion: { (responseInfo) -> Void in
             
+            println(responseInfo)
+            
             if let responseForGuess = responseInfo?["correct"] as? Int {
+                
+                let correct = Bool(responseForGuess)
+                
+                println(correct)
                 
                 println("response info for guesses " + "\(responseInfo)")
                 
@@ -141,32 +146,7 @@ class HTTPRequest: NSObject {
                 
                 println(self.intValueForAnswer)
                 
-                if responseForGuess == 0 {
-                    
-                    println("You're wrong! :-(")
-                    
-                    let alertWrong = UIAlertView()
-                    alertWrong.title = "Wrong"
-                    alertWrong.message = "Try Again!"
-                    alertWrong.addButtonWithTitle("OK")
-                    alertWrong.show()
-                    
-                    println(alertWrong)
-                    
-                } else {
-                
-                    println("You're right! :-)")
-                
-                    let alertCorrect = UIAlertView()
-                    alertCorrect.title = "Correct!"
-                    alertCorrect.message = "Here's x points!"
-                    alertCorrect.addButtonWithTitle("OK")
-                    alertCorrect.show()
-                    
-                    println(alertCorrect)
-
-                }
-                
+                completion(correct: correct)
                 
             }
             
@@ -208,8 +188,15 @@ class HTTPRequest: NSObject {
         var info = [
             
             "method" : "GET",
-            "endpoint" : "/posts",
+            "endpoint" : "/posts"
+            /*
             
+            query : [
+                
+                "page" : 1
+                
+            ]
+            */
             
             ] as [String:AnyObject]
         
@@ -255,6 +242,25 @@ class HTTPRequest: NSObject {
     func requestWithInfo(info: [String:AnyObject], andCompletion completion: ((responseInfo: AnyObject?) -> Void)?) {
         
         let endpoint = info["endpoint"] as! String
+        
+        //query parameters for GET request
+        if let query = info["query"] as? [String:AnyObject] {
+        
+            var first = true
+            
+            for (key,value) in query {
+                
+                //choose sign if it is first ?(then) else :
+                var sign = first ? "?" : "&"
+                
+//                endpoint += endpoint + "\(sign)\(key)=\(value)"
+                
+                //set first the first time it runs
+                first = false
+                
+            }
+        
+        }
         
         if let url = NSURL(string: API_URL + endpoint) {
             

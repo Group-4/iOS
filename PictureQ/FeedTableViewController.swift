@@ -126,7 +126,7 @@ class FeedTableViewController: UITableViewController {
             
             println("solved by " + "\(solvedFromRails)")
             
-            if solvedFromRails != NSNull() {
+            if solvedFromRails != NSNull() && !solvedFromRails.isEmpty {
             
                 cell.solvedForCell.text = "Solved by " + "\(solvedFromRails)"
     
@@ -136,6 +136,11 @@ class FeedTableViewController: UITableViewController {
                 println("this line of code doesn't print")
                 
             }
+            
+        } else {
+            
+            cell.solvedForCell.text = "Unsolved!"
+            println("this line of code doesn't print")
             
         }
         

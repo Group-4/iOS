@@ -74,9 +74,45 @@ class GuessViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let guessToSend = guessTextField.text
         guessedArray.insert("\(guessToSend)", atIndex: 0)
         
+        var currentScore: Int = HTTPRequest.session().getDataForCurrentUser
         
-        HTTPRequest.session().postGuess(solvedToGuessID!, guessToSendToRails: guessToSend)
-        
+        HTTPRequest.session().postGuess(solvedToGuessID!, guessToSendToRails: guessToSend) { (correct) -> Void in
+
+            HTTPRequest.session().getCurrentUser({ () -> Void in
+                
+                var newPoints = HTTPRequest.session().getDataForCurrentUser - currentScore
+                
+                if correct {
+                    
+                    println("You're right! :-)")
+                    
+                    let alertCorrect = UIAlertView()
+                    alertCorrect.title = "Correct!"
+                    alertCorrect.message = "Here's \(newPoints) points!"
+                    alertCorrect.addButtonWithTitle("OK")
+                    alertCorrect.show()
+                    
+                    println(alertCorrect)
+    
+                } else {
+                    
+                    println("You're wrong! :-(")
+                    
+                    let alertWrong = UIAlertView()
+                    alertWrong.title = "Wrong"
+                    alertWrong.message = "Try Again!"
+                    alertWrong.addButtonWithTitle("OK")
+                    alertWrong.show()
+                    
+                    println(alertWrong)
+                    
+                }
+            })
+            
+            
+            
+        }
+    
         guessTextField.text = ""
         
         self.guessedTableView.reloadData()
