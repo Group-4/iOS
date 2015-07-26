@@ -10,12 +10,6 @@ Progress
 - Pictures are stored to S3 before url is posted back to Rails
 - Using AFNetworkingS3Manager Framework to upload images
 - Submitted images are sent back with answers to the photo
+- Score keeping is implemented 
+- Scoreboard is viewable to all players
 
-To-do
-
-- Implement score keeping 
-- Scoreboard
-- See what else I can do through RB documentation 
-- Lot's to do, but so far, so good 
-
-I'll rename the app name when completed to QPic. 
